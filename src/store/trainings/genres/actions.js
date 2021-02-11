@@ -1,4 +1,4 @@
-import {searchGenre,getGenres,deleteGenre,createGenre,updateGenre,getGenre} from './../../../api/audioBookGenreAPI';
+import {searchGenre,getGenres,deleteGenre,createGenre,updateGenre,getGenre} from './../../../api/trainingGenreAPI';
 import {SET_GENRES,SET_FETCHING} from './types';
 
 
@@ -7,7 +7,7 @@ export const setFetching = (payload) => ({type:SET_FETCHING, payload});
 export const setGenres = (genres,payload) => ({type: SET_GENRES,genres,payload});
 
 
-export const getAudioBookGenres = (pageNumber = 1,pageSize = 10) => async dispatch => {
+export const getTrainingGenres = (pageNumber = 1,pageSize = 10) => async dispatch => {
 	try{
 		dispatch(setFetching(true));
 		let response = await getGenres(pageNumber,pageSize);
@@ -31,7 +31,7 @@ export const getAudioBookGenres = (pageNumber = 1,pageSize = 10) => async dispat
 	}
 }
 
-export const searchAudioBookGenres = (data,pageNumber = 1,pageSize = 10) => async dispatch => {
+export const searchTrainingGenres = (data,pageNumber = 1,pageSize = 10) => async dispatch => {
 	try{
 		dispatch(setFetching(true));
 		let response = await searchGenre(data,pageNumber,pageSize);
@@ -54,7 +54,7 @@ export const searchAudioBookGenres = (data,pageNumber = 1,pageSize = 10) => asyn
 	}
 }
 
-export const deleteAudioBookGenre = (id) => async dispatch => {
+export const deleteTrainingGenre = (id) => async dispatch => {
 	try{
 		dispatch(setFetching(true));
 		let response = await deleteGenre(id);
@@ -68,7 +68,7 @@ export const deleteAudioBookGenre = (id) => async dispatch => {
 	}
 }
 
-export const createAudioBookGenre = (data) => async dispatch => {
+export const createTrainingGenre = (data) => async dispatch => {
 	try{
 		dispatch(setFetching(true));
 		let response = await createGenre(data);
@@ -88,7 +88,7 @@ export const createAudioBookGenre = (data) => async dispatch => {
 	}
 }
 
-export const updateAudioBookGenre = (data,id) => async dispatch => {
+export const updateTrainingGenre = (data,id) => async dispatch => {
 	try{
 		dispatch(setFetching(true));
 		let response = await updateGenre(data,id);
@@ -108,7 +108,7 @@ export const updateAudioBookGenre = (data,id) => async dispatch => {
 	}
 }
 
-export const getAudioBookGenre = (id) => async dispatch => {
+export const getTrainingGenre = (id) => async dispatch => {
 	try{
 		let response = await getGenre(id);
 		if(response.data.status === 1)

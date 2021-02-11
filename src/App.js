@@ -3,6 +3,8 @@ import {Switch,Route,Redirect} from 'react-router-dom';
 import AuthLayout from './layouts/Auth';
 import AdminLayout from './layouts/Admin';
 
+import './App.css';
+
 const App = (props) => {
 	/*return(
 		!props.isAuth ? (

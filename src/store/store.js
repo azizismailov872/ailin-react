@@ -4,12 +4,16 @@ import thunk from 'redux-thunk';
 import {appReducer} from './reducer';
 import {authReducer} from './auth/reducer';
 import {audiobookGenresReducer} from './audiobooks/genres/reducer';
+import {podcastGenresReducer} from './podcasts/genres/reducer';
+import {trainingGenresReducer} from './trainings/genres/reducer';
 
 
 const reducers = combineReducers({
 	app: appReducer,
 	auth: authReducer,
 	audiobookGenres: audiobookGenresReducer,
+	podcastGenres: podcastGenresReducer,
+	trainingGenres: trainingGenresReducer,
 });
 
 let store = createStore(reducers,compose(

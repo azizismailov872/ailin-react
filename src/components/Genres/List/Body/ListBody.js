@@ -73,6 +73,7 @@ const ListBody = (props) => {
 	              <DropdownMenu className="dropdown-menu-arrow" right>
 	                <DropdownItem
 	                  href=""
+	                  className="defaultLink"
 	                  onClick={e => props.onDelete(props.genre.id)}
 	                >
 	                  Удалить

@@ -5,8 +5,8 @@ import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 
 import {getFormValues,setErrors} from './../../../helper';
-import {schema} from './../../../validation/audiobook/genre/update';
-import {updateAudioBookGenre,getAudioBookGenre} from './../../../store/audiobooks/genres/actions';
+import {schema} from './../../../validation/podcast/genre/update';
+import {updatePodcastGenre,getPodcastGenre} from './../../../store/podcasts/genres/actions';
 
 import UpdateGenre from './../../../components/Genres/Update/Update';
 import Spinner from './../../../components/Spinner/Spinner';
@@ -20,7 +20,7 @@ const UpdateContainer = (props) => {
 	const [genre,setGenre] = useState(null);
 
 	const getGenre = async(id) => {
-		let response = await dispatch(getAudioBookGenre(id));
+		let response = await dispatch(getPodcastGenre(id));
 		if(!response.errors){
 			setGenre(response);
 		}
@@ -41,7 +41,7 @@ const UpdateContainer = (props) => {
 
 	const [dialogOpen,setDialogOpen] = useState(false);
 
-	const isFetching = useSelector(state => state.audiobookGenres.isFetching);
+	const isFetching = useSelector(state => state.podcastGenres.isFetching);
 
 	const closeDialog = () => {
 		setDialogOpen(false);
@@ -49,7 +49,7 @@ const UpdateContainer = (props) => {
 
 	const onSubmit = async(data) => {
 		let formData = getFormValues(data);
-		let response = await dispatch(updateAudioBookGenre(formData,genre.id));
+		let response = await dispatch(updatePodcastGenre(formData,genre.id));
 		if(response?.errors)
 		{
 			setErrors(response.errors,setError);
@@ -59,7 +59,7 @@ const UpdateContainer = (props) => {
 			setDialogOpen(true);
 			setTimeout(() => {
 				closeDialog();
-				history.push('/admin/audiobooks/genres/list');
+				history.push('/admin/podcasts/genres/list');
 			},2000);
 		}
 	}

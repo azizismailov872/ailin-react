@@ -1,26 +1,26 @@
 import {instance} from './api';
 
 
-export const searchBookGenre = (data,pageNumber,pageSize) => {
-	return instance.post(`/audiobooks/search?page=${pageNumber}&pageSize=${pageSize}`,data);
+export const searchGenre = (data,pageNumber,pageSize) => {
+	return instance.post(`/audiobooks/genres/search?page=${pageNumber}&pageSize=${pageSize}`,data);
 }
 
-export const getBookGenres = (pageNumber,pageSize) => {
-	return instance.get(`/audiobooks/list?page=${pageNumber}&pageSize=${pageSize}`);
+export const getGenres = (pageNumber,pageSize) => {
+	return instance.get(`/audiobooks/genres/list?page=${pageNumber}&pageSize=${pageSize}`);
 }
 
-export const deleteBook = (id) => {
-	return instance.get(`/audiobooks/delete/${id}`);
+export const deleteGenre = (id) => {
+	return instance.get(`/audiobooks/genres/delete/${id}`);
 }
 
-export const createBook = (data) => {
-	return instance.post('/audiobooks/create',data);
+export const createGenre = (data) => {
+	return instance.post('/audiobooks/genres/create',data);
 }
 
-export const updateBook = (data,id) => {
-	return instance.post(`/audiobooks/update/${id}`,data);
+export const updateGenre = (data,id) => {
+	return instance.post(`/audiobooks/genres/update/${id}`,data);
 }
 
 export const getGenre = (id) => {
-	return instance.get(`/audiobooks/one/${id}`);
+	return instance.get(`/audiobooks/genres/one/${id}`);
 }
