@@ -3,9 +3,7 @@ import {
 	Container,
 	Card,
 	CardBody,
-	Col,
 	Row,
-    CardHeader,
 } from 'reactstrap';
 
 import CreateForm from './Form/CreateForm';

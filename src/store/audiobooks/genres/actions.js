@@ -1,4 +1,4 @@
-import {searchGenre,getGenres,deleteGenre,createGenre,updateGenre,getGenre} from './../../../api/audioBookGenreAPI';
+import {searchGenre,getGenres,deleteGenre,createGenre,updateGenre,getGenre,getGenresList} from './../../../api/audioBookGenreAPI';
 import {SET_GENRES,SET_FETCHING} from './types';
 
 
@@ -121,6 +121,24 @@ export const getAudioBookGenre = (id) => async dispatch => {
 		{
 			return {
 				errors: error.response.data.errors
+			}
+		}
+	}
+}
+
+export const getAudioBookGenresList = () => async dispatch => {
+	try{
+		let response = await getGenresList();
+		if(response.data.status === 1)
+		{	
+			return response.data.genres;
+		}
+	}catch(error)
+	{
+		if(error.response)
+		{
+			return {
+				errors: error.response.data.error
 			}
 		}
 	}

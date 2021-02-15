@@ -11,13 +11,11 @@ import "./assets/plugins/nucleo/css/nucleo.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 ReactDOM.render(
-  <React.StrictMode>
     <BrowserRouter>
     	<Provider store={store}>
     		<AppContainer />
     	</Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
+    </BrowserRouter>,
   document.getElementById('root')
 );
 

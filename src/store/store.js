@@ -3,6 +3,8 @@ import thunk from 'redux-thunk';
 
 import {appReducer} from './reducer';
 import {authReducer} from './auth/reducer';
+import {audioBookReducer} from './audiobooks/reducer';
+import {podcastsReducer} from './podcasts/reducer';
 import {audiobookGenresReducer} from './audiobooks/genres/reducer';
 import {podcastGenresReducer} from './podcasts/genres/reducer';
 import {trainingGenresReducer} from './trainings/genres/reducer';
@@ -11,6 +13,8 @@ import {trainingGenresReducer} from './trainings/genres/reducer';
 const reducers = combineReducers({
 	app: appReducer,
 	auth: authReducer,
+	audiobooks: audioBookReducer,
+	podcasts: podcastsReducer,
 	audiobookGenres: audiobookGenresReducer,
 	podcastGenres: podcastGenresReducer,
 	trainingGenres: trainingGenresReducer,

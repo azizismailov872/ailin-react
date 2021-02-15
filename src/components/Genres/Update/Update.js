@@ -4,9 +4,7 @@ import {
 	Container,
 	Card,
 	CardBody,
-	Col,
 	Row,
-    CardHeader,
 } from 'reactstrap';
 
 import UpdateForm from './Form/UpdateForm';

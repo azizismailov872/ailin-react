@@ -3,7 +3,6 @@ import {Controller} from 'react-hook-form';
 import TextField from '@material-ui/core/TextField'; 
 import InputAdornment from "@material-ui/core/InputAdornment";
 
-import Select from '@material-ui/core/Select';
 const SelectInput = ({icon,className,control,name,defaultValue,variant,label,size,children,...props}) => {
 
 	const Icon = icon;

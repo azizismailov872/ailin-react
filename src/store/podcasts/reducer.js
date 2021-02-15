@@ -1,6 +1,6 @@
-import {SET_BOOKS,SET_FETCHING} from './types';
+import {SET_PODCASTS,SET_FETCHING} from './types';
 const initialState = {
-	books: [],
+	podcasts: [],
 	current_page: null,
 	per_page: null,
 	total: null,
@@ -8,15 +8,14 @@ const initialState = {
 	isFetching: false
 }
 
-
-export const audioBookReducer = (state = initialState, action) => {
-	switch(action.type){
-		case SET_BOOKS:
+export const podcastsReducer = (state = initialState,action) => {
+	switch (action.type) {
+		case SET_PODCASTS:
 			return {
 				...state,
-				books: action.books,
+				podcasts: action.podcasts,
 				...action.payload,
-				isLoaded: true,
+				isLoaded: true
 			}
 		case SET_FETCHING:
 			return {

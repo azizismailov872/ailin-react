@@ -1,8 +1,6 @@
 import React from 'react';
 import {
 	FormGroup,
-	Form,
-	Input,
 	Col,
 	Row,
 } from 'reactstrap';

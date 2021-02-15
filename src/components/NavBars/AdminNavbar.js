@@ -1,18 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {useHistory} from 'react-router-dom';
-import {useSelector,useDispatch} from 'react-redux';
+//import {useHistory} from 'react-router-dom';
+//import {useSelector,useDispatch} from 'react-redux';
 import {
   DropdownMenu,
   DropdownItem,
   UncontrolledDropdown,
   DropdownToggle,
-  Form,
-  FormGroup,
-  InputGroupAddon,
-  InputGroupText,
-  Input,
-  InputGroup,
   Navbar,
   Nav,
   Container,
@@ -21,9 +15,9 @@ import {
 
 const AdminNavbar = () =>  {
 
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
 
-    const history = useHistory();
+    //const history = useHistory();
 
     //const email = useSelector(state => state.auth.user.email);
     

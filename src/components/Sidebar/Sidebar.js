@@ -1,30 +1,12 @@
 import React, { useState } from "react";
 import { NavLink as NavLinkRRD, Link } from "react-router-dom";
 import {
-    Button,
-    Card,
-    CardHeader,
-    CardBody,
-    CardTitle,
     Collapse,
-    DropdownMenu,
-    DropdownItem,
-    UncontrolledDropdown,
-    DropdownToggle,
-    FormGroup,
-    Form,
-    Input,
-    InputGroupAddon,
-    InputGroupText,
-    InputGroup,
-    Media,
     NavbarBrand,
     Navbar,
     NavItem,
     NavLink,
     Nav,
-    Progress,
-    Table,
     Container,
     Row,
     Col,
@@ -36,9 +18,9 @@ const Sidebar = (props) => {
 
     const {routes} = props;
 
-    const activeRoute = (routeName) => {
+    /*const activeRoute = (routeName) => {
         return props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
-    };
+    };*/
 
     const createLinks = (routes) => {
         return routes.map((prop, key) => {
