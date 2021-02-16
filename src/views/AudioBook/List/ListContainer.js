@@ -70,6 +70,7 @@ const ListContainer = () => {
 
 	const onReset = () => {
 		reset();
+		setSearch(false);
 		dispatch(getAudioBooks());
 	}
 
@@ -96,6 +97,7 @@ const ListContainer = () => {
 				createLink="/admin/audiobooks/create"
 				updateLink="/admin/audiobooks/update/"
 				title="Аудиокниги"
+				successMessage="Аудиокнига удалена"
 			/>
 		)
 	)

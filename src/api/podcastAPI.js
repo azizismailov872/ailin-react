@@ -37,6 +37,6 @@ export const updateModel = (data,id,setProgress) => {
 	});
 } 
 
-export const searchModels = (data) => {
-	return instance.post('/podcasts/search',data);
+export const searchModels = (data,pageNumber,pageSize) => {
+	return instance.post(`/podcasts/search?page=${pageNumber}&pageSize=${pageSize}`,data);
 }

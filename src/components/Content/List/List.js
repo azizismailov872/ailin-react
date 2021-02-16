@@ -85,7 +85,7 @@ const List = (props) => {
 	          	</Row>
 	        </Container>
 	        {
-	        	props.dialogOpen ? <Success open={props.dialogOpen} handleClose={props.closeDialog} message="Аудиокнига удалена" /> : null
+	        	props.dialogOpen ? <Success open={props.dialogOpen} handleClose={props.closeDialog} message={props.successMessage} /> : null
 	        }
 		</>
 	);

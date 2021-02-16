@@ -1,4 +1,4 @@
-import {searchGenre,getGenres,deleteGenre,createGenre,updateGenre,getGenre} from './../../../api/podcastGenreAPI';
+import {searchGenre,getGenres,deleteGenre,createGenre,updateGenre,getGenre,getGenresList} from './../../../api/podcastGenreAPI';
 import {SET_GENRES,SET_FETCHING} from './types';
 
 
@@ -121,6 +121,24 @@ export const getPodcastGenre = (id) => async dispatch => {
 		{
 			return {
 				errors: error.response.data.errors
+			}
+		}
+	}
+}
+
+export const getPodcastGenresList = () => async dispatch => {
+	try{
+		let response = await getGenresList();
+		if(response.data.status === 1)
+		{	
+			return response.data.genres;
+		}
+	}catch(error)
+	{
+		if(error.response)
+		{
+			return {
+				errors: error.response.data.error
 			}
 		}
 	}

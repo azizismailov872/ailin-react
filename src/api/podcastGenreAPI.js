@@ -24,3 +24,7 @@ export const updateGenre = (data,id) => {
 export const getGenre = (id) => {
 	return instance.get(`/podcasts/genres/one/${id}`);
 }
+
+export const getGenresList = () => {
+	return instance.get('/podcasts/genres/genres-list');
+}
