@@ -21,6 +21,9 @@ const List = (props) => {
 			{
 				props.isFetching ? <Spinner /> : null
 			}
+			{
+	        	props.deleteVideo ? <Success open={props.deleteVideo} handleClose={props.closeDialog} message="Видео удалено" /> : null
+	        }
 			<ListHeader createLink={props.createLink}>
 				<SearchForm 
 					onSubmit={props.onSubmit}
@@ -55,6 +58,8 @@ const List = (props) => {
 	                  						key={model.id}
 	                  						onDelete={props.onDelete}
 	                  						updateLink={props.updateLink}
+	                  						canUpdateVideo={props.canUpdateVideo}
+	                  						deleteVideoAction={props.deleteVideoAction}
 	                  					/>) : (
 	                  						<tr>
 			                  					<th>

@@ -4,10 +4,10 @@ import {useHistory} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 
-import {updatePodcast,getPodcast} from './../../../store/podcasts/actions';
+import {updateTraining,getTraining} from './../../../store/trainings/actions';
 
-import {schema} from './../../../validation/podcast/update';
-import {getPodcastGenresList} from './../../../store/podcasts/genres/actions';
+import {schema} from './../../../validation/training/update';
+import {getGenresList} from './../../../store/trainings/genres/actions';
 import {getFormValuesWithFiles,setErrors} from './../../../helper';
 
 import Update from './../../../components/Content/Update/Update';
@@ -20,7 +20,7 @@ const UpdateContainer = (props) => {
 
 	const history = useHistory();
 
-	const [podcast,setPodcast] = useState(null);
+	const [training,setTraining] = useState(null);
 
 	const [isLoaded,setLoaded] = useState(false);
 
@@ -34,13 +34,13 @@ const UpdateContainer = (props) => {
 
 	const [progress,setProgress] = useState(0);
 
-	const getPodcastModel = async(id) => {
-		let podcastModel = await dispatch(getPodcast(id));
-		let genres = await dispatch(getPodcastGenresList());
-		if(podcastModel)
+	const getTrainingModel = async(id) => {
+		let trainingModel = await dispatch(getTraining(id));
+		let genres = await dispatch(getGenresList());
+		if(trainingModel)
 		{
-			setPodcast(podcastModel);
-			setHasFile((podcastModel.hasFile === true) ? 1 : 0);
+			setTraining(trainingModel);
+			setHasFile((trainingModel.hasFile === true) ? 1 : 0);
 			setGenres(genres);
 			setLoaded(true);
 		}
@@ -50,7 +50,7 @@ const UpdateContainer = (props) => {
 		let id = props.match.params.id;
 		if(id)
 		{
-			getPodcastModel(id);
+			getTrainingModel(id);
 		}
 	},[]);
 
@@ -65,7 +65,7 @@ const UpdateContainer = (props) => {
 	const onSubmit = async(data) => {
 		setFetching(true);
 		let formData =  await getFormValuesWithFiles(data);
-		let response = await dispatch(updatePodcast(formData,podcast.id,setProgress));
+		let response = await dispatch(updateTraining(formData,training.id,setProgress));
 		setFetching(false);
 		setProgress(0);
 		if(response?.errors)
@@ -77,7 +77,7 @@ const UpdateContainer = (props) => {
 			setDialogOpen(true);
 			setTimeout(() => {
 				closeDialog();
-				history.push('/admin/podcasts/list');
+				history.push('/admin/trainings/list');
 			},2000);
 		}
 	}
@@ -94,11 +94,11 @@ const UpdateContainer = (props) => {
 				errors={errors}
 				//
 				isFetching={isFetching}
-				model={podcast}
+				model={training}
 				genres={genres}
 				uploadFile={uploadFile}
-				successMessage="Подкаст успешно обновлен"
-				title={'Обновить ' + podcast.title}
+				successMessage="Тренинг успешно обновлен"
+				title={'Обновить ' + training.title}
 				progress={progress}
 				dialogOpen={dialogOpen}
 				closeDialog={closeDialog}

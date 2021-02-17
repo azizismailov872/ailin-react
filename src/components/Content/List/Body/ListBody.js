@@ -85,6 +85,26 @@ const ListBody = (props) => {
 	                  	Редактировать
 	                  </Link>
 	                </DropdownItem>
+	                {
+	                	props.canUpdateVideo ? (
+	                		<>
+	                		<DropdownItem
+			                	onClick={e => e.preventDefault()}
+			                >
+			                  <Link className="defaultLink" to={'/admin/trainings/upload-video/' + props.model.id}>
+			                  	Добавить видео
+			                  </Link>
+			                </DropdownItem>
+			                <DropdownItem
+			                  href=""
+			                  className="defaultLink"
+			                  onClick={e => props.deleteVideoAction(props.model.id)}
+			                >
+			                  Удалить видео
+			                </DropdownItem>
+			                </>
+	                	) : null
+	                }
 	              </DropdownMenu>
 	            </UncontrolledDropdown>
 	          </td>

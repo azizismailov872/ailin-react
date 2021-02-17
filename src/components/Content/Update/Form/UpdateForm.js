@@ -618,18 +618,18 @@ const UpdateForm = (props) => {
             		</Col>
             	</Row>
             	<Row className="justify-content-end">
-                        <Col lg="3" sm="4">
-                            <Button
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                size="medium"
-                                type="submit"
-                            >
-                                Обновить
-                            </Button>
-                        </Col>
-                    </Row>	
+                    <Col lg="3" sm="4">
+                        <Button
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            size="medium"
+                            type="submit"
+                        >
+                            Обновить
+                        </Button>
+                    </Col>
+                </Row>	
             </div>
 		</form>
 	)

@@ -8,7 +8,7 @@ import {podcastsReducer} from './podcasts/reducer';
 import {audiobookGenresReducer} from './audiobooks/genres/reducer';
 import {podcastGenresReducer} from './podcasts/genres/reducer';
 import {trainingGenresReducer} from './trainings/genres/reducer';
-
+import {trainingReducer} from './trainings/reducer';
 
 const reducers = combineReducers({
 	app: appReducer,
@@ -18,6 +18,7 @@ const reducers = combineReducers({
 	audiobookGenres: audiobookGenresReducer,
 	podcastGenres: podcastGenresReducer,
 	trainingGenres: trainingGenresReducer,
+	trainings: trainingReducer,
 });
 
 let store = createStore(reducers,compose(

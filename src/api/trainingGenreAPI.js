@@ -23,3 +23,7 @@ export const updateGenre = (data,id) => {
 export const getGenre = (id) => {
 	return instance.get(`/trainings/genres/one/${id}`);
 }
+
+export const getList = () => {
+	return instance.get('/trainings/genres/genres-list');
+}

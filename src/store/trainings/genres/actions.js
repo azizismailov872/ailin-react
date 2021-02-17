@@ -1,4 +1,4 @@
-import {searchGenre,getGenres,deleteGenre,createGenre,updateGenre,getGenre} from './../../../api/trainingGenreAPI';
+import {searchGenre,getGenres,deleteGenre,createGenre,updateGenre,getGenre,getList} from './../../../api/trainingGenreAPI';
 import {SET_GENRES,SET_FETCHING} from './types';
 
 
@@ -123,5 +123,18 @@ export const getTrainingGenre = (id) => async dispatch => {
 				errors: error.response.data.errors
 			}
 		}
+	}
+}
+
+export const getGenresList = () => async dispatch => {
+	try{	
+		let response = await getList();
+		if(response.data.status === 1)
+		{
+			return response.data.genres;
+		}
+	}catch(error)
+	{
+		console.log(error);
 	}
 }

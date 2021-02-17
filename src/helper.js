@@ -91,6 +91,51 @@ export const getFormValuesWithFiles = (data) => {
 	return promise;
 }
 
+export const getFormVideos = (data) => {
+	let promise = new Promise((resolve,reject) => {
+		let formData = new FormData();
+		if(data)
+		{
+			for(let field in data)
+			{
+				if(field === 'ru_video')
+				{
+					formData.append('ru_video',data.ru_video[0]);
+				}
+				else if(field === 'en_video')
+				{
+					formData.append('en_video',data.en_video[0]);
+				}
+				else if(field === 'kz_video')
+				{
+					formData.append('kz_video',data.kz_video[0]);
+				}
+				else if(field === 'kg_video')
+				{
+					formData.append('kg_video',data.kg_video[0]);
+				}
+				else if(field === 'uz_video')
+				{
+					formData.append('uz_video',data.uz_video[0]);
+				}
+				else if(field === 'tg_video')
+				{
+					formData.append('tg_video',data.tg_video[0]);
+				}
+				else
+				{
+					formData.append(field,data[field]);
+				}
+			}
+
+			resolve(formData);
+		}
+
+		resolve(null);
+	});
+	return promise;
+}
+
 export const bytesToSize = (bytes) =>  {
 	const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
 	if (!bytes) {
