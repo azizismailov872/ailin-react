@@ -21,7 +21,7 @@ const App = (props) => {
 	return(
 		<Switch>
 			<Route path="/admin" render={(props) => <AdminLayout {...props} />} />
-			<Redirect from="*" to="/admin/index" />
+			<Redirect from="*" to="/admin/users/list" />
 		</Switch>
 	)
 }

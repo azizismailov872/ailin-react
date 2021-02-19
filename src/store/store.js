@@ -9,10 +9,13 @@ import {audiobookGenresReducer} from './audiobooks/genres/reducer';
 import {podcastGenresReducer} from './podcasts/genres/reducer';
 import {trainingGenresReducer} from './trainings/genres/reducer';
 import {trainingReducer} from './trainings/reducer';
+import { userReducer } from './users/reducer';
+
 
 const reducers = combineReducers({
 	app: appReducer,
 	auth: authReducer,
+	users:userReducer,
 	audiobooks: audioBookReducer,
 	podcasts: podcastsReducer,
 	audiobookGenres: audiobookGenresReducer,

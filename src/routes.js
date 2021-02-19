@@ -7,64 +7,84 @@ import PodcastGenreContainer from './views/PodcastGenre/PodcastGenreContainer';
 //Training
 import TrainingContainer from './views/Training/TrainingContainer';
 import TrainingGenreContainer from './views/TrainingGenre/TrainingGenreContainer';
+//User
+import UserContainer from './views/User/UserContainer';
+
 
 
 const routes = [
-	//Audiobook
+    //User
+    {
+        path: "/users/list",
+        name: "Пользователи",
+        icon: "ni ni-single-02 text-primary",
+        component: UserContainer,
+        layout: "/admin",
+        visible: true,
+    },
+    {
+        path: "/users/",
+        name: "Пользователи",
+        icon: "ni ni-single-02 text-primary",
+        component: UserContainer,
+        layout: "/admin",
+        visible: false,
+    },
+    //Audiobook
     {
         path: "/audiobooks/list",
         name: "Аудиокниги",
         icon: "ni ni-books text-primary",
-        component: AudioBookContainer ,
+        component: AudioBookContainer,
         layout: "/admin",
-        visible: true
+        visible: true,
     },
     {
         path: "/audiobooks/genres",
         name: "Аудиокниги | Жанры",
         icon: "ni ni-headphones text-primary",
-        component: AudioBookGenreContainer ,
+        component: AudioBookGenreContainer,
         layout: "/admin",
-        visible: false
+        visible: false,
     },
     {
         path: "/audiobooks",
         name: "Аудиокниги",
         icon: "ni ni-books text-primary",
-        component: AudioBookContainer ,
+        component: AudioBookContainer,
         layout: "/admin",
-        visible: false
+        visible: false,
     },
     {
         path: "/audiobooks/genres/list",
         name: "Аудиокниги | Жанры",
         icon: "ni ni-tag text-primary",
-        component: AudioBookGenreContainer ,
+        component: AudioBookGenreContainer,
         layout: "/admin",
-        visible: true
+        visible: true,
     },
     //Podcast
     {
         path: "/podcasts/list",
         name: "Подкасты",
         icon: "ni ni-headphones text-primary",
-        component: PodcastContainer ,
+        component: PodcastContainer,
         layout: "/admin",
-        visible: true
+        visible: true,
     },
     {
         path: "/podcasts/genres",
         name: "Подкасты | Жанры",
         icon: "ni ni-tag text-primary",
-        component: PodcastGenreContainer ,
+        component: PodcastGenreContainer,
         layout: "/admin",
-        visible: false
+        visible: false,
     },
     {
         path: "/podcasts",
         name: "Подкасты",
         icon: "ni ni-tag text-primary",
-        component: PodcastContainer ,
+        component: PodcastContainer,
         layout: "/admin",
         visible: false,
     },
@@ -72,32 +92,32 @@ const routes = [
         path: "/podcasts/genres/list",
         name: "Подкасты | Жанры",
         icon: "ni ni-tag  text-primary",
-        component: PodcastGenreContainer ,
+        component: PodcastGenreContainer,
         layout: "/admin",
-        visible: true
+        visible: true,
     },
     //Training
     {
         path: "/trainings/list",
         name: "Тренинги",
         icon: "ni ni-hat-3 text-primary",
-        component: TrainingContainer ,
+        component: TrainingContainer,
         layout: "/admin",
-        visible: true
+        visible: true,
     },
     {
         path: "/trainings/genres",
         name: "Тренинги | Жанры",
         icon: "ni ni-tag text-primary",
-        component: TrainingGenreContainer ,
+        component: TrainingGenreContainer,
         layout: "/admin",
-        visible: false
+        visible: false,
     },
     {
         path: "/trainings",
         name: "Тренинги",
         icon: "ni ni-hat-3 text-primary",
-        component: TrainingContainer ,
+        component: TrainingContainer,
         layout: "/admin",
         visible: false,
     },
@@ -105,10 +125,9 @@ const routes = [
         path: "/trainings/genres/list",
         name: "Тренинги | Жанры",
         icon: "ni ni-tag text-primary",
-        component: TrainingGenreContainer ,
+        component: TrainingGenreContainer,
         layout: "/admin",
-        visible: true
+        visible: true,
     },
-    
 ];
 export default routes;
