@@ -23,6 +23,14 @@ export const getFormValues = (data) => {
 					formData.append(field,data[field]);
 				}
 			}
+			else if(field === 'photo')
+			{
+				formData.append('photo',data.photo[0]);
+			}
+			else if(field === 'passwordRepeat')
+			{
+				console.log('password');
+			}
 			else 
 			{	
 				if(data[field].length > 0)
@@ -37,6 +45,41 @@ export const getFormValues = (data) => {
 		return null;
 	}
 
+}
+
+export const getApplicationFormValues = (data) => {
+	let formData = new FormData();
+	if(data){
+		for(let field in data)
+		{	
+			if(field === 'status')
+			{
+				if(data[field] !== 3)
+				{
+					formData.append(field,data[field]);
+				}
+			}
+			else if(field === 'photo')
+			{
+				formData.append('photo',data.photo[0]);
+			}
+			else if(field === 'passwordRepeat')
+			{
+				console.log('password');
+			}
+			else 
+			{	
+				if(data[field].length > 0)
+				{
+					formData.append(field,data[field]);
+				}	
+			}
+		}
+
+		return formData;
+	}else {
+		return null;
+	}
 }
 
 export const getFormValuesWithFiles = (data) => {

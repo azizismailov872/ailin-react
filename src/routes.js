@@ -9,7 +9,12 @@ import TrainingContainer from './views/Training/TrainingContainer';
 import TrainingGenreContainer from './views/TrainingGenre/TrainingGenreContainer';
 //User
 import UserContainer from './views/User/UserContainer';
-
+//AdminUser
+import AdminUserContainer from './views/AdminUser/AdminUserContainer';
+//RegisterApp
+import RegisterAppContainer from './views/RegisterApplication/RegisterAppContainer';
+//VolunteerApp
+import VolunteerAppContainer from './views/VolunteerApplication/VolunteerAppContainer';
 
 
 const routes = [
@@ -27,6 +32,57 @@ const routes = [
         name: "Пользователи",
         icon: "ni ni-single-02 text-primary",
         component: UserContainer,
+        layout: "/admin",
+        visible: false,
+    },
+    //RegisterApplications
+    {
+        path: "/register-applications/list",
+        name: "Заявки на регистрацию",
+        icon: "ni ni-archive-2 text-primary",
+        component: RegisterAppContainer,
+        layout: "/admin",
+        visible: true,
+    },
+    {
+        path: "/register-applications",
+        name: "Заявки на регистрацию",
+        icon: "ni ni-archive-2 text-primary",
+        component: RegisterAppContainer,
+        layout: "/admin",
+        visible: false,
+    },
+    //AdminUser
+    {
+        path: "/admin-users/list",
+        name: "Администраторы",
+        icon: "ni ni-single-02 text-primary",
+        component: AdminUserContainer,
+        layout: "/admin",
+        visible: true,
+    },
+    {
+        path: "/admin-users",
+        name: "Администраторы",
+        icon: "ni ni-single-02 text-primary",
+        component: AdminUserContainer,
+        layout: "/admin",
+        visible: false,
+    },
+    //VolunteerApp
+    {
+        path: "/volunteer-applications/list",
+        name: "Заявки на волонтерство",
+        icon: "ni ni-archive-2 text-primary",
+        component: VolunteerAppContainer,
+        layout: "/admin",
+        visible: true,
+    },
+    {
+        path: "/volunteer-applications",
+        name: "Заявки на волонтерство",
+        icon: "ni ni-archive-2 text-primary",
+        component: VolunteerAppContainer,
         layout: "/admin",
         visible: false,
     },
