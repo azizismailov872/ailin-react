@@ -6,7 +6,7 @@ const setPodcasts = (podcasts,payload) => ({type:SET_PODCASTS, podcasts,payload}
 export const getPodcasts = (pageNumber = 1, pageSize = 10) => async dispatch => {
 	try{
 		let response = await getModels(pageNumber,pageSize);
-		if(response.data.data.length > 0)
+		if(response.data.data)
 		{	
 			let payload = {
 				current_page: response.data.current_page,

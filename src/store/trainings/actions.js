@@ -40,7 +40,7 @@ export const createTraining = (data,setProgress) => async dispatch => {
 export const getTrainings = (pageNumber = 1, pageSize = 10) => async dispatch => {
 	try{
 		let response = await getModels(pageNumber,pageSize);
-		if(response.data.data.length > 0)
+		if(response.data.data)
 		{	
 			let payload = {
 				current_page: response.data.current_page,

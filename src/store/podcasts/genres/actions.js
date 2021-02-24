@@ -11,7 +11,7 @@ export const getPodcastGenres = (pageNumber = 1,pageSize = 10) => async dispatch
 	try{
 		dispatch(setFetching(true));
 		let response = await getGenres(pageNumber,pageSize);
-		if(response.data.data.length > 0)
+		if(response.data.data)
 		{	
 			let payload ={ 
 				current_page: response.data.current_page,

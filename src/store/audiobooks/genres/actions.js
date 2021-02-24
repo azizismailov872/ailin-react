@@ -11,7 +11,7 @@ export const getAudioBookGenres = (pageNumber = 1,pageSize = 10) => async dispat
 	try{
 		dispatch(setFetching(true));
 		let response = await getGenres(pageNumber,pageSize);
-		if(response.data.data.length > 0)
+		if(response.data.data)
 		{	
 			let payload ={ 
 				current_page: response.data.current_page,

@@ -28,7 +28,7 @@ import TgIcon from './../../../Flags/TgIcon';
 
 import TextInput from './../../../Form/TextInput/TextInput';
 import SelectInput from './../../../Form/SelectInput/SelectInput';
-import FileInput from './../../../Form/FileInput/FileInput';
+import UploadFile from './../../UploadFile/UploadFile';
 
 const useStyles = makeStyles(theme => ({
 	label: {
@@ -175,44 +175,30 @@ const UpdateForm = (props) => {
                 <Row>
                 	<Col lg="12">
                 		<FormGroup>
-                			{
-                				props.uploadFile ? (
-                					<>	
-                						<label className={classes.label}>
-                                            Файл
-                                        </label>
-                                        {props.errors.ru_file ? (
-                                            <Alert color="danger">
-                                                <strong>
-                                                    {
-                                                        props.errors.ru_file.message
-                                                    }
-                                                </strong>
-                                            </Alert>
-                                        ) : null}
-                                        <FileInput
-                                            name="ru_file"
-                                            defaultValue={props.model.hasFile ? [
-                                            	props.model.ru_file
-                                            ] : []}
-                                            error={!!props.errors.ru_file}
-                                            control={props.control}
-                                        />
-                                    </>
-                				) : (
-                					<TextInput
-                                        name="ru_file_link"
-                                        inputRef={props.register}
-                                        variant="outlined"
-                                        label="Ссылка на файл"
-                                        size="small"
-                                        icon={LinkIcon}
-                                        error={!!props.errors.ru_file_link || !!props.errors.summary}
-                                        helperText={props.errors?.ru_file_link?.message || props.errors?.summary?.message}
-                                        defaultValue={props.model?.ru_file_link}
-                                    />
-                				)
-                			}
+                			<UploadFile 
+                                uploadFile={props.uploadFile}
+                                isTrans={false}
+                                //
+                                title="Файл"
+                                register={props.register}
+                                control={props.control}
+                                //
+                                model={props.model}
+                                name="ru_file"
+                                error={!!props.errors?.ru_file || !!props.errors?.summary}
+                                errorMessage={
+                                    props.errors?.ru_file?.message || props.errors?.summary?.message
+                                }
+                                //
+                                linkName="ru_file_link"
+                                linkLabel="Ссылка на файл"
+                                linkError={!!props.errors?.ru_file_link || !!props.errors?.summary}
+                                linkErrorMessage={
+                                    props.errors?.ru_file_link?.message || props.errors?.summary?.message
+                                }
+                                linkValue={props.model?.trans?.ru_file_link}
+
+                            />
                 		</FormGroup>
                 	</Col>
                 </Row>	 
@@ -404,216 +390,146 @@ const UpdateForm = (props) => {
             	<Row>
             		<Col md="6">
             			<FormGroup>
-            				{
-                				props.uploadFile ? (
-                					<>	
-                						<label className={classes.label}>
-                                            Английский
-                                        </label>
-                                        {props.errors.ru_file ? (
-                                            <Alert color="danger">
-                                                <strong>
-                                                    {
-                                                        props.errors.en_file.message
-                                                    }
-                                                </strong>
-                                            </Alert>
-                                        ) : null}
-                                        <FileInput
-                                            name="en_file"
-                                            defaultValue={props.model.hasFile ? [
-                                            	props.model?.trans?.en_file
-                                            ] : []}
-                                            error={!!props.errors.ru_file}
-                                            control={props.control}
-                                        />
-                                    </>
-                				) : (
-                					<TextInput
-                                        name="en_file_link"
-                                        inputRef={props.register}
-                                        variant="outlined"
-                                        label="Английский"
-                                        size="small"
-                                        icon={LinkIcon}
-                                        error={!!props.errors.en_file_link || !!props.errors.summary}
-                                        helperText={props.errors?.en_file_link?.message || props.errors?.summary?.message}
-                                        defaultValue={props.model?.trans?.en_file_link}
-                                    />
-                				)
-                			}
+                            <UploadFile 
+                                uploadFile={props.uploadFile}
+                                isTrans={true}
+                                //
+                                title="Английский"
+                                register={props.register}
+                                control={props.control}
+                                //
+                                model={props.model}
+                                name="en_file"
+                                error={!!props.errors?.en_file || !!props.errors?.summary}
+                                errorMessage={
+                                    props.errors?.en_file?.message || props.errors?.summary?.message
+                                }
+                                //
+                                linkName="en_file_link"
+                                linkLabel="Английский"
+                                linkError={!!props.errors?.en_file_link || !!props.errors?.summary}
+                                linkErrorMessage={
+                                    props.errors?.en_file_link?.message || props.errors?.summary?.message
+                                }
+                                linkValue={props.model?.trans?.en_file_link}
+
+                            />
             			</FormGroup>
             		</Col>
             		<Col md="6">
             			<FormGroup>
-            				{
-                				props.uploadFile ? (
-                					<>	
-                						<label className={classes.label}>
-                                            Кыргызский
-                                        </label>
-                                        {props.errors.kg_file ? (
-                                            <Alert color="danger">
-                                                <strong>
-                                                    {
-                                                        props.errors.kg_file.message
-                                                    }
-                                                </strong>
-                                            </Alert>
-                                        ) : null}
-                                        <FileInput
-                                            name="kg_file"
-                                            defaultValue={props.model.hasFile ? [
-                                            	props.model?.trans?.kg_file
-                                            ] : []}
-                                            error={!!props.errors.kg_file}
-                                            control={props.control}
-                                        />
-                                    </>
-                				) : (
-                					<TextInput
-                                        name="kg_file_link"
-                                        inputRef={props.register}
-                                        variant="outlined"
-                                        label="Кыргызский"
-                                        size="small"
-                                        icon={LinkIcon}
-                                        error={!!props.errors.kg_file_link || !!props.errors.summary}
-                                        helperText={props.errors?.kg_file_link?.message || props.errors?.summary?.message}
-                                        defaultValue={props.model?.trans?.kg_file_link}
-                                    />
-                				)
-                			}
+            				<UploadFile 
+                                uploadFile={props.uploadFile}
+                                isTrans={true}
+                                //
+                                title="Кыргызский"
+                                register={props.register}
+                                control={props.control}
+                                //
+                                model={props.model}
+                                name="kg_file"
+                                error={!!props.errors?.kg_file || !!props.errors?.summary}
+                                errorMessage={
+                                    props.errors?.kg_file?.message || props.errors?.summary?.message
+                                }
+                                //
+                                linkName="kg_file_link"
+                                linkLabel="Кыргызский"
+                                linkError={!!props.errors?.kg_file_link || !!props.errors?.summary}
+                                linkErrorMessage={
+                                    props.errors?.kg_file_link?.message || props.errors?.summary?.message
+                                }
+                                linkValue={props.model?.trans?.kg_file_link}
+
+                            />
             			</FormGroup>
             		</Col>
             	</Row>
             	<Row>
             		<Col md="6">
             			<FormGroup>
-            				{
-                				props.uploadFile ? (
-                					<>	
-                						<label className={classes.label}>
-                                            Казахский
-                                        </label>
-                                        {props.errors.kz_file ? (
-                                            <Alert color="danger">
-                                                <strong>
-                                                    {
-                                                        props.errors.kz_file.message
-                                                    }
-                                                </strong>
-                                            </Alert>
-                                        ) : null}
-                                        <FileInput
-                                            name="kz_file"
-                                            defaultValue={props.model.hasFile ? [
-                                            	props.model?.trans?.kz_file
-                                            ] : []}
-                                            error={!!props.errors.kz_file}
-                                            control={props.control}
-                                        />
-                                    </>
-                				) : (
-                					<TextInput
-                                        name="kz_file_link"
-                                        inputRef={props.register}
-                                        variant="outlined"
-                                        label="Казахский"
-                                        size="small"
-                                        icon={LinkIcon}
-                                        error={!!props.errors.kz_file_link || !!props.errors.summary}
-                                        helperText={props.errors?.kz_file_link?.message || props.errors?.summary?.message}
-                                        defaultValue={props.model?.trans?.kz_file_link}
-                                    />
-                				)
-                			}
+            				<UploadFile 
+                                uploadFile={props.uploadFile}
+                                isTrans={true}
+                                //
+                                title="Казахский"
+                                register={props.register}
+                                control={props.control}
+                                //
+                                model={props.model}
+                                name="kz_file"
+                                error={!!props.errors?.kz_file || !!props.errors?.summary}
+                                errorMessage={
+                                    props.errors?.kz_file?.message || props.errors?.summary?.message
+                                }
+                                //
+                                linkName="kz_file_link"
+                                linkLabel="Казахский"
+                                linkError={!!props.errors?.kz_file_link || !!props.errors?.summary}
+                                linkErrorMessage={
+                                    props.errors?.kz_file_link?.message || props.errors?.summary?.message
+                                }
+                                linkValue={props.model?.trans?.kz_file_link}
+
+                            />
             			</FormGroup>
             		</Col>
             		<Col md="6">
             			<FormGroup>
-            				{
-                				props.uploadFile ? (
-                					<>	
-                						<label className={classes.label}>
-                                            Узбекский
-                                        </label>
-                                        {props.errors.uz_file ? (
-                                            <Alert color="danger">
-                                                <strong>
-                                                    {
-                                                        props.errors.uz_file.message
-                                                    }
-                                                </strong>
-                                            </Alert>
-                                        ) : null}
-                                        <FileInput
-                                            name="uz_file"
-                                            defaultValue={props.model.hasFile ? [
-                                            	props.model?.trans?.uz_file
-                                            ] : []}
-                                            error={!!props.errors.uz_file}
-                                            control={props.control}
-                                        />
-                                    </>
-                				) : (
-                					<TextInput
-                                        name="uz_file_link"
-                                        inputRef={props.register}
-                                        variant="outlined"
-                                        label="Узбекский"
-                                        size="small"
-                                        icon={LinkIcon}
-                                        error={!!props.errors.uz_file_link || !!props.errors.summary}
-                                        helperText={props.errors?.uz_file_link?.message || props.errors?.summary?.message}
-                                        defaultValue={props.model?.trans?.uz_file_link}
-                                    />
-                				)
-                			}
+            				<UploadFile 
+                                uploadFile={props.uploadFile}
+                                isTrans={true}
+                                //
+                                title="Узбекский"
+                                register={props.register}
+                                control={props.control}
+                                //
+                                model={props.model}
+                                name="uz_file"
+                                error={!!props.errors?.uz_file || !!props.errors?.summary}
+                                errorMessage={
+                                    props.errors?.uz_file?.message || props.errors?.summary?.message
+                                }
+                                //
+                                linkName="uz_file_link"
+                                linkLabel="Узбекский"
+                                linkError={!!props.errors?.uz_file_link || !!props.errors?.summary}
+                                linkErrorMessage={
+                                    props.errors?.uz_file_link?.message || props.errors?.summary?.message
+                                }
+                                linkValue={props.model?.trans?.uz_file_link}
+
+                            />
             			</FormGroup>
             		</Col>
             	</Row>
             	<Row>
             		<Col md="12">
             			<FormGroup>
-            				{
-                				props.uploadFile ? (
-                					<>	
-                						<label className={classes.label}>
-                                            Таджикский
-                                        </label>
-                                        {props.errors.tg_file ? (
-                                            <Alert color="danger">
-                                                <strong>
-                                                    {
-                                                        props.errors.tg_file.message
-                                                    }
-                                                </strong>
-                                            </Alert>
-                                        ) : null}
-                                        <FileInput
-                                            name="tg_file"
-                                            defaultValue={props.model.hasFile ? [
-                                            	props.model?.trans?.tg_file
-                                            ] : []}
-                                            error={!!props.errors.tg_file}
-                                            control={props.control}
-                                        />
-                                    </>
-                				) : (
-                					<TextInput
-                                        name="tg_file_link"
-                                        inputRef={props.register}
-                                        variant="outlined"
-                                        label="Таджикский"
-                                        size="small"
-                                        icon={LinkIcon}
-                                        error={!!props.errors.tg_file_link || !!props.errors.summary}
-                                        helperText={props.errors?.tg_file_link?.message || props.errors?.summary?.message}
-                                        defaultValue={props.model?.trans?.tg_file_link}
-                                    />
-                				)
-                			}
+            				<UploadFile 
+                                uploadFile={props.uploadFile}
+                                isTrans={true}
+                                //
+                                title="Таджикский"
+                                register={props.register}
+                                control={props.control}
+                                //
+                                model={props.model}
+                                name="tg_file"
+                                error={!!props.errors?.tg_file || !!props.errors?.summary}
+                                errorMessage={
+                                    props.errors?.tg_file?.message || props.errors?.summary?.message
+                                }
+                                //
+                                linkName="tg_file_link"
+                                linkLabel="Таджикский"
+                                linkError={!!props.errors?.tg_file_link || !!props.errors?.summary}
+                                linkErrorMessage={
+                                    props.errors?.tg_file_link?.message || props.errors?.summary?.message
+                                }
+                                linkValue={props.model?.trans?.tg_file_link}
+
+                            />
             			</FormGroup>
             		</Col>
             	</Row>

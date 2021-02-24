@@ -12,7 +12,7 @@ import
 
 const ListBody = (props) => {
 	return(
-		<tr>
+		<tr style={{height: '80px'}}>
         	<th scope="row">
 	            <Media className="align-items-center">
 	              <span className="mb-0 text-sm">

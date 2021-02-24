@@ -25,7 +25,10 @@ export const getFormValues = (data) => {
 			}
 			else if(field === 'photo')
 			{
-				formData.append('photo',data.photo[0]);
+				if(typeof data.photo[0] !== 'undefined' && data.photo[0].type && data.photo[0].type !== 'undefined')
+				{
+					formData.append('photo',data.photo[0]);
+				}
 			}
 			else if(field === 'passwordRepeat')
 			{
@@ -59,14 +62,6 @@ export const getApplicationFormValues = (data) => {
 					formData.append(field,data[field]);
 				}
 			}
-			else if(field === 'photo')
-			{
-				formData.append('photo',data.photo[0]);
-			}
-			else if(field === 'passwordRepeat')
-			{
-				console.log('password');
-			}
 			else 
 			{	
 				if(data[field].length > 0)
@@ -97,28 +92,46 @@ export const getFormValuesWithFiles = (data) => {
 					}
 				}
 				else if(field === 'ru_file')
-				{
-					formData.append('ru_file',data.ru_file[0]);
+				{	
+					if(typeof data.ru_file[0] !== 'undefined' && data.ru_file[0].type && data.ru_file[0].type !== 'undefined')
+					{
+						formData.append('ru_file',data.ru_file[0]);
+					}
 				}
 				else if(field === 'en_file')
-				{
-					formData.append('en_file',data.en_file[0]);
+				{	
+					if(typeof data.en_file[0] !== 'undefined' && data.en_file[0].type && data.en_file[0].type !== 'undefined')
+					{
+						formData.append('en_file',data.en_file[0]);
+					}
 				}
 				else if(field === 'kz_file')
 				{
-					formData.append('kz_file',data.kz_file[0]);
+					if(typeof data.kz_file[0] !== 'undefined' && data.kz_file[0].type && data.kz_file[0]?.type !== 'undefined')
+					{
+						formData.append('kz_file',data.kz_file[0]);
+					}
 				}
 				else if(field === 'kg_file')
 				{
-					formData.append('kg_file',data.kg_file[0]);
+					if(typeof data.kg_file[0] !== 'undefined' && data.kg_file[0].type && data.kg_file[0]?.type !== 'undefined')
+					{
+						formData.append('kg_file',data.kg_file[0]);
+					}
 				}
 				else if(field === 'uz_file')
 				{
-					formData.append('uz_file',data.uz_file[0]);
+					if(typeof data.uz_file[0] !== 'undefined' && data.uz_file[0].type && data.uz_file[0]?.type !== 'undefined')
+					{
+						formData.append('uz_file',data.uz_file[0]);
+					}
 				}
 				else if(field === 'tg_file')
 				{
-					formData.append('tg_file',data.tg_file[0]);
+					if(typeof data.tg_file[0] !== 'undefined' && data.tg_file[0].type && data.tg_file[0]?.type !== 'undefined')
+					{
+						formData.append('tg_file',data.tg_file[0]);
+					}
 				}
 				else
 				{
@@ -143,27 +156,45 @@ export const getFormVideos = (data) => {
 			{
 				if(field === 'ru_video')
 				{
-					formData.append('ru_video',data.ru_video[0]);
+					if(typeof data.ru_video[0] !== 'undefined' && data.ru_video[0].type && data.ru_video[0].type !== 'undefined')
+					{
+						formData.append('ru_video',data.ru_video[0]);
+					}
 				}
 				else if(field === 'en_video')
 				{
-					formData.append('en_video',data.en_video[0]);
+					if(typeof data.en_video[0] !== 'undefined' && data.en_video[0].type && data.en_video[0].type !== 'undefined')
+					{
+						formData.append('en_video',data.en_video[0]);
+					}
 				}
 				else if(field === 'kz_video')
 				{
-					formData.append('kz_video',data.kz_video[0]);
+					if(typeof data.kz_video[0] !== 'undefined' && data.kz_video[0].type && data.kz_video[0].type !== 'undefined')
+					{
+						formData.append('kz_video',data.kz_video[0]);
+					}
 				}
 				else if(field === 'kg_video')
 				{
-					formData.append('kg_video',data.kg_video[0]);
+					if(typeof data.kg_video[0] !== 'undefined' && data.kg_video[0].type && data.kg_video[0].type !== 'undefined')
+					{
+						formData.append('kg_video',data.kg_video[0]);
+					}
 				}
 				else if(field === 'uz_video')
 				{
-					formData.append('uz_video',data.uz_video[0]);
+					if(typeof data.uz_video[0] !== 'undefined' && data.uz_video[0].type && data.uz_video[0].type !== 'undefined')
+					{
+						formData.append('uz_video',data.uz_video[0]);
+					}
 				}
 				else if(field === 'tg_video')
 				{
-					formData.append('tg_video',data.tg_video[0]);
+					if(typeof data.tg_video[0] !== 'undefined' && data.tg_video[0].type && data.tg_video[0].type !== 'undefined')
+					{
+						formData.append('tg_video',data.tg_video[0]);
+					}
 				}
 				else
 				{
